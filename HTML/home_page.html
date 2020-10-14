@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:/Users/jai27/Desktop/colleague_wellbeing/css/style_home.css">
+    <script type="text/javascript" src="C:/Users/jai27/Desktop/colleague_wellbeing/js/home_page1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+
+    <!---chatbot header-->
+    <link rel="stylesheet" type="text/css" href="C:/Users/jai27/Desktop/colleague_wellbeing/css/chat_bot.css" />
+    <script src="C:/Users/jai27/Desktop/colleague_wellbeing/js/test.js"></script>
+    <link rel="stylesheet" type="text/css" href="csshake.min.css">
+    <!-- or from surge.sh -->
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+</head>
+<!--chatbot header ends-->
+
+<body onload="invoke()" id="body" class="first">
+    <img id="open_close" src="C:/Users/jai27/Desktop/colleague_wellbeing/images/chatbot_image.png" class="shake-slow shake-constant" onclick="openForm()"></img>
+
+    <!-- nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">
+            <img src="C:/Users/jai27/Desktop/colleague_wellbeing/images/logo.png" width="100" height="50" alt="">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#"><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="C:/Users/jai27/Desktop/colleague_wellbeing/html/Responses.html"></a>
+                    <h2 id="heading" style="margin-left: 480px;color:white">COVID Buddy</h2>
+                    <a href="C:\Users\jai27\Desktop\colleague_wellbeing\html\index.html"> <img id="logout" src="C:/Users/jai27/Desktop/colleague_wellbeing/images/close.png" style="width: 35px; height: 35px; margin-left: 550px; margin-top: 3px; font-family:'Fredoka One', cursive;"></img>
+                    </a>
+                </div>
+            </div>
+            </div>
+    </nav>
+    <div class="hero-image">
+
+        <!--colors below nav bar-->
+        <section class="seperator-wrapper">
+            <div class="seperator gradient">
+            </div>
+        </section>
+
+
+        <!--contains bg image on top-->
+    </div>
+
+
+
+    <!--questions start here-->
+    <div class="container">
+
+        <center>
+            <h3>How are you and your family doing?</h3>
+        </center>
+
+        <ul>
+            <li>
+                <input type="radio" id="f-option" name="selector" value="1" ;>
+                <label for="f-option">Great</label>
+
+                <div class="check"></div>
+            </li>
+
+            <li>
+                <input type="radio" id="s-option" name="selector" value="1">
+                <label for="s-option">Good</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" id="t-option" name="selector" value="0">
+                <label for="t-option">Average</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" id="u-option" name="selector" value="0">
+                <label for="u-option">Bad</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <!--Question 2-->
+    <div class="container">
+
+        <center>
+            <h3>Are you residing in a Containment zone?</h3>
+        </center>
+
+        <ul>
+            <li>
+                <input type="radio" id="f1-option" name="selector1">
+                <label for="f1-option">Yes</label>
+
+                <div class="check"></div>
+            </li>
+
+            <li>
+                <input type="radio" id="s1-option" name="selector1">
+                <label for="s1-option">No</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <!--Question 3-->
+    <div class="container">
+
+        <center>
+            <h3>Have you been a primary contact of any COVID positive patient recently?</h3>
+        </center>
+
+        <ul>
+            <li>
+                <input type="radio" id="f3-option" name="selector3">
+                <label for="f3-option">Yes</label>
+
+                <div class="check"></div>
+            </li>
+
+            <li>
+                <input type="radio" id="s3-option" name="selector3">
+                <label for="s3-option">No</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!--Question 4-->
+    <div class="container">
+
+        <center>
+            <h3>Are you able to connect to your system from home instantly?</h3>
+        </center>
+
+        <ul>
+            <li>
+                <input type="radio" id="f2-option" name="selector2">
+                <label for="f2-option">Almost Every time</label>
+
+                <div class="check"></div>
+            </li>
+
+            <li>
+                <input type="radio" id="s2-option" name="selector2">
+                <label for="s2-option">Sometimes</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" id="t2-option" name="selector2">
+                <label for="t2-option">Never</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="container">
+
+        <center>
+            <h3>How much time are you spending in front of your system?</h3>
+        </center>
+
+        <ul>
+            <li>
+                <input type="radio" id="f2-option" name="selector2">
+                <label for="f2-option">< 3 Hours</label>
+
+                <div class="check"></div>
+            </li>
+
+            <li>
+                <input type="radio" id="s2-option" name="selector2">
+                <label for="s2-option">3 - 6 Hours</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" id="t2-option" name="selector2">
+                <label for="t2-option">> 6 Hours</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+
+
+
+
+    <!--slider 2-->
+
+    <div class="container">
+        <h3>
+            <center>How would you rate your work-life balance?</center><br></h3>
+        <div class="sliderContainer">
+            <input type="range" value="0" min="0" max="10" id="slider">
+            <center><span id="output"></span></center>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+
+        <center>
+            <h3>How much time do you devote on leisure activites such as listening to music, dancing, reading and so on?</h3>
+        </center>
+
+        <ul>
+            <li>
+                <input type="radio" id="f2-option" name="selector2">
+                <label for="f2-option">< 3 Hours</label>
+
+                <div class="check"></div>
+            </li>
+
+            <li>
+                <input type="radio" id="s2-option" name="selector2">
+                <label for="s2-option">3 - 6 Hours</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+            <li>
+                <input type="radio" id="t2-option" name="selector2">
+                <label for="t2-option">> 6 Hours</label>
+
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+
+
+    <!--Question 5-->
+    <div class="container">
+        <h3>
+            <center>Do you enjoy working from home?</center><br></h3>
+        <div class="sliderContainer">
+            <input type="range" value="0" min="0" max="10" id="slider">
+            <center><span id="output"></span></center>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="popup center">
+        <div class="icon">
+            <img src="C:/Users/jai27/Desktop/colleague_wellbeing/images/tick.png" width=70px; height=70px></img>
+        </div>
+        <div class="title">
+            <p id="mess" style="font-size: 20px;"></p>
+        </div>
+
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn">
+          Dismiss
+        </button>
+        </div>
+    </div>
+
+    <div class="center">
+        <button id="open-popup-btn" class="pop-open" onclick="reload();">
+        SUBMIT
+      </button>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        function reload() {
+            window.scrollTo(10, 10);
+            var x = document.getElementById("f-option").checked;
+            var y = document.getElementById("s-option").checked;
+            var w = document.getElementById("t-option").checked;
+            var z = document.getElementById("u-option").checked;
+            var good = "We are delighted to know that you are doing good! Continue following the best practices."
+            var bad = "We are worried about your health. Please get in touch with your Branch HR."
+            if (x == true || y == true) {
+                document.getElementById("mess").innerHTML = good;
+            }
+            if (w == true || z == true) {
+                document.getElementById("mess").innerHTML = bad;
+            }
+        }
+        document.getElementById("open-popup-btn").addEventListener("click", function() {
+            document.getElementsByClassName("popup")[0].classList.add("active");
+        });
+
+        document.getElementById("dismiss-popup-btn").addEventListener("click", function() {
+            document.getElementsByClassName("popup")[0].classList.remove("active");
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
