@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cards</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\sumuk\Desktop\colleague_wellbeing\css\Res_styl.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:/Users/jai27/Desktop/colleague_wellbeing/css/style_home.css">
+</head>
+
+<style type="text/css">
+    body {
+        font-family: arial;
+        background-color: #222222;
+    }
+    
+    .main {
+        margin: 2%;
+        box-shadow: 2px 2px 20px black;
+    }
+    
+    .header {
+        width: 99%;
+        margin-top: 30px;
+        margin-left: 7px;
+        height: 50px;
+        background-color: white;
+        box-shadow: 2px 2px 20px black;
+    }
+    
+    .header page_head {
+        align-content: center;
+    }
+    
+    .card {
+        width: 27%;
+        display: inline-block;
+        box-shadow: 2px 2px 20px orange;
+        background-color: #000000;
+        border-radius: 5px;
+        margin-left: 4%;
+        margin-top: 3%;
+    }
+    
+    .image img {
+        width: 100%;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    
+    .title {
+        text-align: center;
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .des {
+        padding: 3px;
+        text-align: center;
+        padding-top: 10px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    
+    button {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    
+    button:hover {
+        background-color: black;
+        color: white;
+        transition: .5s;
+        cursor: pointer;
+    }
+    
+    .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 280px;
+    }
+    /* The popup chat - hidden by default */
+    
+    .chat-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
+    /* Add styles to the form container */
+    
+    .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+    }
+    /* Full-width textarea */
+    
+    .form-container textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+        resize: none;
+        min-height: 200px;
+    }
+    /* When the textarea gets focus, do something */
+    
+    .form-container textarea:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+    /* Set a style for the submit/send button */
+    
+    .form-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+    
+    .logo {
+        float: left;
+        padding-top: 2px;
+        padding-left: 2px;
+    }
+    
+    .bread {
+        padding-top: 4px;
+        float: left;
+        padding-left: 10px;
+        padding-right: 450px;
+    }
+    
+    .page_head {
+        float: left;
+        font-color: #f06C00;
+        padding-left: 20px;
+        padding-right: 500px;
+    }
+    
+    ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background-color: white;
+    }
+    
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 13px;
+    }
+    
+    ul.breadcrumb li+li:before {
+        padding: 0px;
+        color: black;
+        content: ">\00a0";
+    }
+    
+    ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+    }
+    
+    ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+    }
+    /* Add a red background color to the cancel button */
+    
+    .form-container .cancel {
+        background-color: red;
+    }
+    /* Add some hover effects to buttons */
+    
+    .form-container .btn:hover,
+    .open-button:hover {
+        opacity: 1;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    
+    .container {
+        width: 500px;
+        margin: auto;
+    }
+    
+    .chat {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background: #f1f0e8;
+    }
+    
+    .chat-header {
+        display: flex;
+        cursor: pointer;
+    }
+    
+    .profile {
+        width: 100%;
+        background: #036055;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding: 0px 10px;
+        position: relative;
+    }
+    
+    .profile .pp {
+        width: 50px;
+        display: inline-block;
+        border-radius: 50%;
+        margin-left: 32px;
+    }
+    
+    .profile .arrow {
+        display: inline-block;
+        width: 30px;
+        position: absolute;
+        top: 19px;
+        cursor: pointer;
+    }
+    
+    .profile h2 {
+        display: inline-block;
+        line-height: 60px;
+        vertical-align: bottom;
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .profile span {
+        color: #ccc;
+        position: absolute;
+        top: 42px;
+        left: 100px;
+        font-size: 14px;
+    }
+    
+    .right .icon {
+        display: inline-block;
+        width: 25px;
+        margin-left: 10px;
+    }
+    
+    .profile .left {
+        flex: 1;
+    }
+    
+    .chat-box {
+        background: url('../img/bg.jpeg');
+        background-attachment: fixed;
+        padding-left: 20px;
+        overflow-y: scroll;
+        flex: 1;
+    }
+    
+    .chat-box .img_chat {
+        width: 280px;
+    }
+    
+    .chat-r {
+        display: flex;
+    }
+    
+    .chat-r .sp {
+        flex: 1;
+    }
+    
+    .chat-l {
+        display: flex;
+    }
+    
+    .chat-l .sp {
+        flex: 1;
+    }
+    
+    .chat-box .mess {
+        max-width: 300px;
+        background: #F7FCF6;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 20px 0px;
+        cursor: pointer;
+    }
+    
+    .chat-box .mess p {
+        word-break: break-all;
+        font-size: 18px;
+    }
+    
+    .chat-box .mess-r {
+        background: #E2FFC7;
+    }
+    
+    .chat-box .emoji {
+        width: 20px;
+    }
+    
+    .chat-box .check {
+        float: right;
+    }
+    
+    .chat-box .check img {
+        width: 20px;
+    }
+    
+    .chat-box .check span {
+        color: #888;
+        font-size: 12px;
+        font-weight: 700px;
+    }
+    
+    *::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    *::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    *::-webkit-scrollbar-thumb {
+        background: #aaa;
+    }
+    
+    *::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    
+    .chat-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 60px;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .chat-footer textarea {
+        display: block;
+        flex: 1;
+        width: 100%;
+        height: 50px;
+        border-radius: 60px;
+        margin: 5px;
+        padding: 10px;
+        outline: none;
+        font-size: 19px;
+        padding-left: 40px;
+        padding-right: 90px;
+        border: 2px solid #ccc;
+        color: #555;
+        resize: none;
+    }
+    
+    .chat-footer .mic {
+        display: block;
+        width: 55px;
+        height: 55px;
+        margin-right: 20px;
+    }
+    
+    .chat-footer .emo {
+        display: block;
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        left: 10px;
+        top: 12px;
+    }
+    
+    .chat-footer .icons {
+        position: absolute;
+        right: 100px;
+        top: 10px;
+    }
+    
+    .chat-footer .icons img {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin-left: 5px;
+    }
+    
+    h1,
+    h4 {
+        color: papayawhip
+    }
+</style>
+
+<body>
+    <!-- nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">
+            <img src="C:/Users/jai27/Desktop/colleague_wellbeing/images/logo.png" width="100" height="50" alt="">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="C:/Users/jai27/Desktop/colleague_wellbeing/html/Responses.html">Graph View</a>
+
+                    <a class="nav-item nav-link active" href="C:/Users/jai27/Desktop/colleague_wellbeing/html/ResponsePageF2.html">Chart View<span class="sr-only">(current)</span></a>
+                    <h2 id="heading" style="margin-left: 300px;color: white;">COVID Buddy</h2>
+                    <a href="C:\Users\jai27\Desktop\colleague_wellbeing\html\index.html"> <img id="logout" src="C:/Users/jai27/Desktop/colleague_wellbeing/images/close.png" style="width: 35px; height: 35px; margin-left: 600px; margin-top: 3px; font-family:'Fredoka One', cursive;"></img>
+                    </a>
+                </div>
+            </div>
+            </div>
+    </nav>
+
+    <!--<div class="main"></div>-->
+
+    <!--color -->
+    <section class="seperator-wrapper">
+        <div class="seperator gradient">
+        </div>
+    </section>
+
+    <div class="card">
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <div class="title">
+            <h1>
+                Residing in a Containment zone
+            </h1>
+        </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <canvas id="myChart2" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>Primary contact of COVID positive patient
+            </h1>
+        </div>
+    </div>
+
+
+
+    <div class="card">
+        <canvas id="myChart3" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>
+                Connecting system from home
+
+            </h1>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="card">
+        <canvas id="myChart8" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>
+                Time spent in front of system
+
+            </h1>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+        <canvas id="myChart6" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>
+                Employee work-life balance
+
+            </h1>
+        </div>
+    </div>
+
+
+
+
+    <div class="card">
+        <canvas id="myChart7" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>
+                Time spent on leisure activities
+
+            </h1>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <canvas id="myChart9" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>Enjoying working from home
+            </h1>
+        </div>
+    </div>
+
+
+
+    <div class="card">
+        <canvas id="myChart5" width="400" height="400"></canvas>
+
+        <div class="title">
+            <h1>Overall Employee-Family well being
+            </h1>
+        </div>
+    </div>
+
+
+
+    <!--cards -->
+
+
+
+    <!--cards -->
+    <!--cards -->
+    <!--cards -->
+    <!--cards -->
+    <!--cards -->
+    <!--cards -->
+    <!--cards -->
+
+    <!--</div>-->
+    <script>
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Yes', 'No', ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [18, 13, ],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+
+                    }]
+                }
+            }
+        });
+
+
+        var ctx = document.getElementById("myChart2");
+        var myChart2 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Yes', 'No', ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [11, 20, ],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+
+                    }]
+                }
+            }
+        });
+
+        var ctx = document.getElementById("myChart3");
+        var myChart3 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Almost Every time', 'Sometimes', 'Never'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [16, 14, 1],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                        'rgba(112, 112, 112, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(71, 71, 71, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+
+                    }]
+                }
+            }
+        });
+
+
+
+        var ctx = document.getElementById("myChart5");
+        var myChart5 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Great', 'Good', 'Average', 'Bad'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [4, 10, 13, 4],
+                    backgroundColor: [
+                        'rgba(240, 108, 0, 1)',
+                        'rgba(0, 169, 207, 1)',
+
+                        'rgba(48, 204, 0, 1)',
+                        'rgba(255,200,0,1)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(71, 71, 71, 1)',
+                        'rgba(255,200,0,1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Scale'
+                        }
+
+                    }]
+                }
+            }
+        });
+
+
+        var ctx = document.getElementById("myChart6");
+        var myChart6 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3', '4', '5'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [0, 2, 11, 15, 3],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                        'rgba(112, 112, 112, 1)',
+                        'rgba(255, 200, 0, 1)',
+                        'rgba(48, 204, 0, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(71, 71, 71, 1)',
+                        'rgba(229, 230, 0, 1)',
+                        'rgba(45, 194, 0, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Scale'
+                        }
+
+                    }]
+                }
+            }
+        });
+
+
+        var ctx = document.getElementById("myChart7");
+        var myChart7 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Less than 3 hours', '3 to 6 hours', 'More than 6 hours'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [7, 21, 3],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                        'rgba(112, 112, 112, 1)',
+                        'rgba(255, 200, 0, 1)',
+                        'rgba(48, 204, 0, 1)',
+                        'rgba(0, 214, 189, 1)',
+                        'rgba(0, 104, 214, 1)',
+                        'rgb(0, 208, 150)',
+                        'rgba(207, 77, 255, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(71, 71, 71, 1)',
+                        'rgba(229, 230, 0, 1)',
+                        'rgba(45, 194, 0, 1)',
+                        'rgba(0, 214, 189, 1)',
+                        'rgba(0, 104, 214, 1)',
+                        'rgb(0, 208, 150)',
+                        'rgba(207, 77, 255, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Hours'
+                        }
+
+                    }]
+                }
+            }
+        });
+
+
+        var ctx = document.getElementById("myChart8");
+        var myChart8 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Less than 3 hours', '3 to 6 hours', 'More than 6 hours'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [5, 7, 19],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                        'rgba(112, 112, 112, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(112, 112, 112, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+
+                    }]
+                }
+            }
+        });
+
+
+        var ctx = document.getElementById("myChart9");
+        var myChart9 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Yes', 'No', ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [21, 10, ],
+                    backgroundColor: [
+                        'rgba(0, 169, 207, 1)',
+                        'rgba(240, 108, 0, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of people'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        }
+
+                    }]
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
