@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #222222;
+}
+
+.chatlogs::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chatlogs::-webkit-scrollbar-thumb {
+    border-right: 5px;
+    background: rgba(0, 0, 0, .1);
+}
+
+.chatbox {
+    margin-top: -4px;
+    width: 390px;
+    min-width: 390px;
+    bottom: 0px;
+    position: fixed;
+    height: 550px;
+    background-image: url(C:/Users/jai27/Desktop/colleague_wellbeing/images/wallpaper3.jpg);
+    background-position-x: center;
+    backdrop-filter: blur(5px);
+    /*background: #ccc;
+     background-position: center;
+    background-size: cover;*/
+    padding: 0px;
+    margin-left: 71%;
+    box-shadow: 0 3px #ccc;
+    border-radius: 14px;
+}
+
+.hide {
+    background-color: #222222;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 390px;
+    height: 42px;
+    border-radius: 0px;
+}
+
+#covid {
+    margin-top: 0px;
+    margin-left: 110px;
+    float: left;
+    font-color: #f06C00;
+}
+
+#close {
+    margin-top: 7px;
+    margin-left: 50px;
+    width: 30px;
+    height: 30px;
+}
+
+.chatlogs {
+    padding: 10px;
+    width: 100%;
+    height: 400px;
+    /* background-color: crimson;
+    */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.chat {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.chat .user-photo {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.chat .user-photo img {
+    width: 100%;
+}
+
+.chat .chat-message {
+    width: 80%;
+    padding: 15px;
+    margin-left: 7px;
+    padding-right: 10px;
+    margin-top: 5px;
+    /* marigin: 8px 10px 0;*/
+    background: #1ddced;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+}
+
+.friend .chat-message {
+    background: #e0e0d1;
+}
+
+.self .chat-message {
+    margin-right: 8px;
+    background: #ffcc80;
+    order: -1;
+}
+
+.chat-form {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.chat-form textarea {
+    background: #fbfbfb;
+    width: 60%;
+    height: 35px;
+    margin-left: 40px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.chat-form textarea:focus {
+    background: #ffff;
+}
+
+.chat-form textarea::-webkit-scrollbar {
+    width: 0px;
+}
+
+.chat-form textarea::-webkit-scrollbar-thumb {
+    border-right: 5px;
+    background: rgba(0, 0, 0, .1);
+}
+
+.chat-form button {
+    /*  background: #1ddced;
+            padding 5px 15px;
+            padding-left: 3px;
+            margin-left: 30px;
+            font-size: 20px;
+            color: #ffff;
+            border: none;
+            marigin: 2px 10px;
+            border-radius: 4px;
+            box-shadow: 0 3px 0 #0eb2c1;
+            cursor: pointer;
+            -webkit-transition: background .2s ease;
+            -moz-transition: background .2s ease;
+            -o-transition: background: .2s ease;
+              */
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: grey;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.chat-form button:hover {
+    background: #f06C00;
+}
+
+#open_close {
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 8%;
+}
+
+.ta {
+    /*   -webkit-animation-name: spaceboots;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;   -webkit-animation-name: tada;
+    animation-name: tada;
+    -webkit-animation-duration: 2s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;*/
+    -webkit-animation-name: spaceboots;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes tada {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10%,
+    20% {
+        -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes tada {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10%,
+    20% {
+        -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
